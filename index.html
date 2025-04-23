@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Interactiva Marketing Dental - ClimaDent</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Define Corporate Colors as CSS Variables */
+        :root {
+            --climadent-teal: #00F2A9; /* Approximate color from logo */
+            --climadent-blue: #4D5AE5; /* Approximate color from logo */
+            --climadent-purple: #A650E0; /* Approximate color from logo */
+            --climadent-dark-blue: #333366; /* Darker blue/purple for text */
+            --climadent-gradient: linear-gradient(to right, var(--climadent-teal), var(--climadent-blue), var(--climadent-purple));
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 300px;
+            width: 90%;
+            max-width: 500px;
+            background-color: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            margin-bottom: 2rem;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        /* Apply Corporate Colors */
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+        h1.main-title {
+             /* Example: Apply gradient text (might need adjustments for full cross-browser) */
+             background: var(--climadent-gradient);
+             -webkit-background-clip: text;
+             background-clip: text;
+             color: transparent;
+             padding-bottom: 5px; /* Add some padding if needed */
+        }
+         /* Or apply gradient as background to header */
+        .header-gradient {
+            background: var(--climadent-gradient);
+            padding: 2px; /* Creates a border effect */
+            border-radius: 0.5rem; /* Match parent rounding */
+            margin-bottom: 1rem;
+        }
+        .header-content {
+            background-color: white;
+            padding: 1rem;
+             border-radius: 0.4rem; /* Slightly smaller rounding */
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.2s ease-in-out;
+            border-left: 4px solid var(--climadent-blue); /* Use corporate blue for accent */
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+             color: var(--climadent-dark-blue); /* Use dark blue for card titles */
+        }
+        .service-card h3 i {
+             color: var(--climadent-blue); /* Use corporate blue for icons */
+        }
+
+        .package-card {
+             background-color: #eef2ff; /* Lighter version of corporate blue/purple */
+             border-left: 4px solid var(--climadent-purple); /* Use corporate purple for package accent */
+        }
+         .package-card h4 {
+             color: var(--climadent-dark-blue);
+         }
+
+        .star-package {
+             border-color: var(--climadent-blue); /* Use corporate blue for star package */
+             background-color: #f0f9ff; /* Light blue background */
+        }
+         .star-package h4 {
+             color: var(--climadent-dark-blue);
+         }
+         .star-package h4 i {
+             color: var(--climadent-blue); /* Star icon color */
+         }
+
+        .why-us-card {
+            background-color: #f0f9ff; /* Light blue background */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        }
+         .why-us-card i {
+             color: var(--climadent-blue);
+         }
+         .why-us-card h4 {
+             color: var(--climadent-dark-blue);
+             font-weight: 600;
+         }
+
+         strong.highlight {
+             color: var(--climadent-blue); /* Highlight key text with corporate blue */
+         }
+         .footer-info p.agency-name {
+             color: var(--climadent-dark-blue);
+             font-weight: bold;
+         }
+
+         /* Logo Placeholder Style */
+         .logo-image {
+             max-width: 180px; /* Adjust max width as needed */
+             height: auto;
+             margin: 0 auto 1.5rem; /* Center and add space below */
+         }
+
+    </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-lg shadow-xl fade-in">
+
+        <div class="text-center mb-8 border-b pb-4 border-gray-200">
+            <div class="logo-placeholder text-gray-400 text-sm mb-4">(Aquí iría el logo de ClimaDent - Reemplaza este div con la etiqueta img y la URL)</div>
+
+            <h1 class="text-3xl md:text-4xl font-bold mb-2 main-title">Propuesta de Marketing Digital</h1>
+            <h2 class="text-xl md:text-2xl text-gray-600">Impulsa el Crecimiento de Tu Clínica Dental - Presentado por ClimaDent</h2>
+        </div>
+
+        <div class="mb-8 text-gray-700">
+            <p class="mb-4">Estimados [Nombre de la Clínica Dental],</p>
+            <p class="mb-4">Entendemos que vuestro principal objetivo es <strong class="highlight">atraer a más pacientes</strong> y <strong class="highlight">aumentar la facturación</strong> de vuestra clínica dental. En <strong style="color: var(--climadent-dark-blue); font-weight: 600;">ClimaDent</strong>, somos expertos en crear estrategias digitales personalizadas que convierten la inversión en resultados tangibles.</p>
+            <p class="mb-4">Vivimos en una era digital donde la presencia online es crucial. Los pacientes buscan activamente soluciones dentales en internet, y ahí es donde debemos posicionar vuestra clínica: como la opción preferente y de confianza en vuestra área.</p>
+            <p>Nuestra propuesta está diseñada para <strong class="highlight">maximizar vuestra visibilidad, generar un flujo constante de pacientes potenciales (leads) y convertirlos en tratamientos reales</strong>, con un enfoque especial en servicios de alto valor como los implantes.</p>
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center" style="color: var(--climadent-dark-blue);">Nuestros Servicios Estrella</h2>
+
+        <div class="service-card fade-in" style="animation-delay: 0.1s;">
+            <h3 class="text-xl mb-4 flex items-center"><i class="fas fa-bullhorn mr-2"></i>1. Campañas de Captación de Pacientes (Facebook & Instagram Ads)</h3>
+            <p class="text-gray-600 mb-3"><strong class="text-gray-700">Objetivo:</strong> Generar un volumen significativo de primeras visitas cualificadas mes a mes.</p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h4 class="font-semibold text-gray-700 mb-2">¿Cómo lo hacemos?</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li><strong class="text-gray-700">Anuncios Estratégicos:</strong> Campañas segmentadas y optimizadas.</li>
+                        <li><strong class="text-gray-700">Seguimiento Continuo:</strong> Maximización del ROI.</li>
+                        <li><strong class="text-gray-700">Formación en Ventas:</strong> Capacitación a recepción para mejorar conversión.</li>
+                        <li><strong class="text-gray-700">Integración CRM:</strong> Gestión eficiente de leads.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-700 mb-2">Resultados Esperados:</h4>
+                     <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li><strong class="text-gray-700">Generación Leads:</strong> 70 - 150 oportunidades/mes.</li>
+                        <li><strong class="text-gray-700">Conversión (Estimada 10%):</strong> 7 - 15 tratamientos extra/mes.</li>
+                        <li><strong class="text-gray-700">Enfoque High-Ticket:</strong> Ideal para implantes, ortodoncia, etc.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4 class="font-semibold text-gray-700 mb-2 text-center">Potencial Mensual Estimado</h4>
+            <div class="chart-container fade-in" style="animation-delay: 0.2s;">
+                <canvas id="leadConversionChart"></canvas>
+            </div>
+
+            <h4 class="font-semibold text-gray-700 mb-2 mt-6">Inversión:</h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 mb-4">
+                <li><strong class="text-gray-700">Honorarios ClimaDent:</strong> 700€ / mes por campaña.</li>
+                <li><strong class="text-gray-700">Inversión Publicidad (Recomendada):</strong>
+                    <ul class="list-circle list-inside ml-4">
+                        <li>Volumen (~300€/mes)</li>
+                        <li>High-Ticket (~450€/mes)</li>
+                        <li>Ortodoncia Invisible (~750€-900€/mes)</li>
+                    </ul>
+                </li>
+                 <li><strong class="text-green-600">¡Oferta Especial! 2ª Campaña:</strong> 50% Dto. en honorarios (Total 950€/mes por 2 campañas) + Inversión Ads.</li>
+            </ul>
+
+             <h4 class="font-semibold text-gray-700 mb-2 text-center">Ejemplo Inversión Mensual (1 Campaña High-Ticket)</h4>
+             <div class="chart-container fade-in" style="animation-delay: 0.3s;">
+                <canvas id="investmentChart"></canvas>
+            </div>
+        </div>
+
+        <div class="service-card fade-in" style="animation-delay: 0.4s;">
+            <h3 class="text-xl mb-4 flex items-center"><i class="fas fa-palette mr-2"></i>2. Creación de Branding e Identidad Corporativa</h3>
+             <p class="text-gray-600 mb-3"><strong class="text-gray-700">Objetivo:</strong> Construir una marca sólida, profesional y memorable.</p>
+             <h4 class="font-semibold text-gray-700 mb-2">¿Qué incluye?</h4>
+             <ul class="list-disc list-inside text-gray-600 space-y-1 mb-3">
+                 <li>Misión, Visión, Valores.</li>
+                 <li>Diseño/Rediseño Logotipo.</li>
+                 <li>Paleta de Colores Corporativa.</li>
+                 <li>Selección de Tipografías.</li>
+                 <li>Diseño Panfleto/Dossier digital.</li>
+             </ul>
+             <p class="text-gray-600 mb-3"><strong class="text-gray-700">Beneficios:</strong> Diferenciación, profesionalidad, coherencia.</p>
+             <p class="text-gray-600"><strong class="text-gray-700">Inversión:</strong> <span class="text-lg font-semibold" style="color: var(--climadent-blue);">800€</span> (Pago único).</p>
+        </div>
+
+        <div class="service-card fade-in" style="animation-delay: 0.5s;">
+            <h3 class="text-xl mb-4 flex items-center"><i class="fas fa-share-alt mr-2"></i>3. Gestión Profesional de Redes Sociales</h3>
+             <p class="text-gray-600 mb-3"><strong class="text-gray-700">Objetivo:</strong> Crear comunidad, fortalecer marca y atraer pacientes.</p>
+             <h4 class="font-semibold text-gray-700 mb-2">Metodología Única:</h4>
+             <ul class="list-disc list-inside text-gray-600 space-y-1 mb-3">
+                 <li>Contenido Hiper-Personalizado (3 Posts/Reels + 3 Stories / semana).</li>
+                 <li>Feed a Medida y Casos de Éxito.</li>
+                 <li>Marca Personal Doctores y Contenido Dinámico (Vídeos).</li>
+                 <li>Contenido Educativo para derribar barreras.</li>
+                 <li>Planificación y Publicación completa.</li>
+             </ul>
+             <p class="text-gray-600 mb-3"><strong class="text-gray-700">Beneficios:</strong> Engagement, confianza, posicionamiento experto.</p>
+             <p class="text-gray-600"><strong class="text-gray-700">Inversión:</strong> <span class="text-lg font-semibold" style="color: var(--climadent-blue);">350€ / mes</span>.</p>
+        </div>
+
+        <div class="service-card fade-in" style="animation-delay: 0.6s;">
+            <h3 class="text-xl mb-4 flex items-center"><i class="fas fa-search-location mr-2"></i>4. SEO Local - Posicionamiento Web Orgánico</h3>
+            <p class="text-gray-600 mb-3"><strong class="text-gray-700">Objetivo:</strong> Dominar búsquedas locales en Google y captar pacientes orgánicamente.</p>
+            <h4 class="font-semibold text-gray-700 mb-2">¿Qué hacemos?</h4>
+            <ul class="list-disc list-inside text-gray-600 space-y-1 mb-3">
+                <li>Optimización On-Page y Google My Business.</li>
+                <li>Estrategia de Contenidos Locales.</li>
+                <li>Construcción de Enlaces Locales (Link Building).</li>
+            </ul>
+             <p class="text-gray-600 mb-3"><strong class="text-gray-700">Beneficios:</strong> Visibilidad a largo plazo, captación "gratuita", autoridad online.</p>
+            <p class="text-gray-600"><strong class="text-gray-700">Inversión:</strong> <span class="text-lg font-semibold" style="color: var(--climadent-blue);">350€ / mes</span>.</p>
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 mt-10 text-center" style="color: var(--climadent-dark-blue);">Paquetes Estratégicos: Sinergia y Ahorro</h2>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div class="package-card p-6 rounded-lg fade-in" style="animation-delay: 0.7s;">
+                <h4 class="text-xl font-semibold mb-4">Impulso Inicial</h4>
+                <p class="text-gray-600 mb-3">Campaña Ads (1 mes) + Branding</p>
+                <p class="text-purple-600 font-semibold">Inversión: 1000€ (Pago Único) + Ads</p>
+            </div>
+
+            <div class="package-card p-6 rounded-lg fade-in" style="animation-delay: 0.8s;">
+                <h4 class="text-xl font-semibold mb-4">Doble Impacto</h4>
+                <p class="text-gray-600 mb-3">2 Campañas Ads Simultáneas</p>
+                <p class="text-purple-600 font-semibold">Inversión: 950€/mes (Honorarios ClimaDent) + Ads x2</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div class="package-card p-6 rounded-lg fade-in" style="animation-delay: 0.9s;">
+                <h4 class="text-xl font-semibold mb-4">Visibilidad Total</h4>
+                <p class="text-gray-600 mb-3">Campaña Ads + Community Manager</p>
+                <p class="text-purple-600 font-semibold">Inversión: 950€/mes (3 meses mín.) + Ads</p>
+            </div>
+
+            <div class="package-card p-6 rounded-lg fade-in" style="animation-delay: 1s;">
+                <h4 class="text-xl font-semibold mb-4">Autoridad Local</h4>
+                <p class="text-gray-600 mb-3">Campaña Ads + SEO Local</p>
+                <p class="text-purple-600 font-semibold">Inversión: 950€/mes (3 meses mín.) + Ads</p>
+            </div>
+        </div>
+
+        <div class="star-package p-6 rounded-lg fade-in mb-8" style="animation-delay: 1.1s;">
+            <h4 class="text-xl font-semibold mb-4"><i class="fas fa-star mr-2"></i>Paquete 360 Digital Completo</h4>
+            <p class="text-gray-600 mb-3">Campaña Ads + Community Manager + SEO Local</p>
+            <p class="text-blue-600 font-semibold mb-2">Inversión: 1100€/mes (3 meses mín.) + Ads</p>
+            <p class="text-green-600 font-semibold"><i class="fas fa-tag mr-1"></i>¡Oferta Branding! Añádelo por solo 400€ (50% Dto.).</p>
+        </div>
+
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold mb-4 text-center" style="color: var(--climadent-dark-blue);">Comparativa Inversión Mensual (Honorarios ClimaDent)</h3>
+            <div class="chart-container fade-in">
+                <canvas id="packageComparisonChart"></canvas>
+            </div>
+        </div>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center" style="color: var(--climadent-dark-blue);">¿Por qué elegir ClimaDent?</h2>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <div class="why-us-card fade-in" style="animation-delay: 0.9s;">
+                <i class="fas fa-chart-line text-2xl mb-3"></i>
+                <h4 class="text-lg font-semibold mb-2">Resultados Medibles</h4>
+                <p class="text-gray-600">Seguimiento constante de KPIs y ROI.</p>
+            </div>
+            <div class="why-us-card fade-in" style="animation-delay: 1s;">
+                <i class="fas fa-users text-2xl mb-3"></i>
+                <h4 class="text-lg font-semibold mb-2">Equipo Especializado</h4>
+                <p class="text-gray-600">Expertos en marketing dental.</p>
+            </div>
+            <div class="why-us-card fade-in" style="animation-delay: 1.1s;">
+                <i class="fas fa-handshake text-2xl mb-3"></i>
+                <h4 class="text-lg font-semibold mb-2">Compromiso Total</h4>
+                <p class="text-gray-600">Tu éxito es nuestro éxito.</p>
+            </div>
+        </div>
+
+        <div class="text-center mb-8">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-4" style="color: var(--climadent-dark-blue);">Gracias por tu interés</h2>
+            <p class="text-gray-600 mb-6">Apreciamos el tiempo que has dedicado a revisar nuestra propuesta</p>
+        </div>
+
+        <footer class="text-center text-gray-600 text-sm">
+            <div class="footer-info mb-4">
+                <p class="agency-name">ClimaDent Marketing Dental</p>
+                <p class="font-semibold">Raúl González Sánchez</p>
+                <p>Email: raulfunnels@gmail.com</p>
+                <p>Tel: +34 657 088 042</p>
+            </div>
+            <p>© 2024 ClimaDent. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Chart for Lead Conversion
+        const leadConversionCtx = document.getElementById('leadConversionChart').getContext('2d');
+        new Chart(leadConversionCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Leads Generados', 'Conversiones'],
+                datasets: [{
+                    label: 'Mensual',
+                    data: [100, 10],
+                    backgroundColor: [
+                        'rgba(77, 90, 229, 0.6)',
+                        'rgba(0, 242, 169, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(77, 90, 229, 1)',
+                        'rgba(0, 242, 169, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Chart for Investment
+        const investmentCtx = document.getElementById('investmentChart').getContext('2d');
+        new Chart(investmentCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Honorarios', 'Inversión Ads'],
+                datasets: [{
+                    data: [700, 450],
+                    backgroundColor: [
+                        'rgba(77, 90, 229, 0.6)',
+                        'rgba(166, 80, 224, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(77, 90, 229, 1)',
+                        'rgba(166, 80, 224, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Chart for Package Comparison
+        const packageComparisonCtx = document.getElementById('packageComparisonChart').getContext('2d');
+        new Chart(packageComparisonCtx, {
+            type: 'bar',
+            data: {
+                labels: ['1 Campaña', '2 Campañas', 'Camp + CM', 'Camp + SEO', '360 Digital'],
+                datasets: [{
+                    label: 'Euros (€)',
+                    data: [700, 950, 950, 950, 1100],
+                    backgroundColor: [
+                        'rgba(0, 242, 169, 0.6)',
+                        'rgba(77, 90, 229, 0.6)',
+                        'rgba(128, 128, 128, 0.6)',
+                        'rgba(128, 128, 128, 0.6)',
+                        'rgba(166, 80, 224, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 242, 169, 1)',
+                        'rgba(77, 90, 229, 1)',
+                        'rgba(128, 128, 128, 1)',
+                        'rgba(128, 128, 128, 1)',
+                        'rgba(166, 80, 224, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1200
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
