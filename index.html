@@ -215,13 +215,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                 <div class="bg-white p-4 rounded-lg shadow-sm">
                     <h5 class="text-center text-gray-700 font-semibold mb-4">Leads y Conversiones</h5>
-                    <div class="chart-container fade-in" style="animation-delay: 0.2s; min-height: 300px; max-height: 350px; position: relative;">
+                    <div style="min-height: 300px; max-height: 350px; position: relative;">
                         <canvas id="leadConversionChart"></canvas>
                     </div>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow-sm">
                     <h5 class="text-center text-gray-700 font-semibold mb-4">Escenarios de Facturación Mensual</h5>
-                    <div class="chart-container fade-in" style="animation-delay: 0.3s; min-height: 300px; max-height: 350px; position: relative;">
+                    <div style="min-height: 300px; max-height: 350px; position: relative;">
                         <canvas id="revenueChart"></canvas>
                     </div>
                 </div>
@@ -291,36 +291,36 @@
 
         <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 mt-10 text-center scroll-float" style="color: var(--climadent-dark-blue);">Paquetes Estratégicos: Sinergia y Ahorro</h2>
 
-        <div class="grid md:grid-cols-2 gap-6 mb-8 scroll-float" data-stagger="0.1">
-            <div class="package-card p-6 rounded-lg">
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div class="package-card p-6 rounded-lg" style="border-left: 4px solid var(--climadent-purple);">
                 <h4 class="text-xl font-semibold mb-4">Impulso Inicial</h4>
                 <p class="text-gray-600 mb-3">Campaña Ads (1 mes) + Branding</p>
                 <p class="text-purple-600 font-semibold">Inversión: 1000€ (Pago Único) + Ads</p>
             </div>
 
-            <div class="package-card p-6 rounded-lg">
+            <div class="package-card p-6 rounded-lg" style="border-left: 4px solid var(--climadent-blue);">
                 <h4 class="text-xl font-semibold mb-4">Doble Impacto</h4>
                 <p class="text-gray-600 mb-3">2 Campañas Ads Simultáneas</p>
                 <p class="text-purple-600 font-semibold">Inversión: 950€/mes (Honorarios ClimaDent) + Ads x2</p>
             </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6 mb-8 scroll-float" data-stagger="0.1">
-            <div class="package-card p-6 rounded-lg">
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div class="package-card p-6 rounded-lg" style="border-left: 4px solid var(--climadent-teal);">
                 <h4 class="text-xl font-semibold mb-4">Visibilidad Total</h4>
                 <p class="text-gray-600 mb-3">Campaña Ads + Community Manager</p>
                 <p class="text-purple-600 font-semibold">Inversión: 950€/mes (3 meses mín.) + Ads</p>
             </div>
 
-            <div class="package-card p-6 rounded-lg">
+            <div class="package-card p-6 rounded-lg" style="border-left: 4px solid var(--climadent-blue);">
                 <h4 class="text-xl font-semibold mb-4">Autoridad Local</h4>
                 <p class="text-gray-600 mb-3">Campaña Ads + SEO Local</p>
                 <p class="text-purple-600 font-semibold">Inversión: 950€/mes (3 meses mín.) + Ads</p>
             </div>
         </div>
 
-        <div class="star-package p-6 rounded-lg">
-            <h4 class="text-xl font-semibold mb-4"><i class="fas fa-star mr-2"></i>Paquete 360 Digital Completo</h4>
+        <div class="star-package p-6 rounded-lg mb-8" style="border-left: 4px solid var(--climadent-purple); background-color: #f0f9ff;">
+            <h4 class="text-xl font-semibold mb-4"><i class="fas fa-star mr-2" style="color: var(--climadent-blue);"></i>Paquete 360 Digital Completo</h4>
             <p class="text-gray-600 mb-3">Campaña Ads + Community Manager + SEO Local</p>
             <p class="text-blue-600 font-semibold mb-2">Inversión: 1100€/mes (3 meses mín.) + Ads</p>
             <p class="text-green-600 font-semibold"><i class="fas fa-tag mr-1"></i>¡Oferta Branding! Añádelo por solo 400€ (50% Dto.).</p>
@@ -328,27 +328,27 @@
 
         <div class="mb-8">
             <h3 class="text-xl font-semibold mb-4 text-center" style="color: var(--climadent-dark-blue);">Comparativa Inversión Mensual (Honorarios ClimaDent)</h3>
-            <div class="bg-white p-4 rounded-lg shadow-sm">
+            <div class="bg-white p-4 rounded-lg shadow-sm" style="max-width: 700px; margin: 0 auto;">
                 <div class="chart-container fade-in" style="min-height: 300px; max-height: 400px; position: relative;">
                     <canvas id="packageComparisonChart"></canvas>
                 </div>
             </div>
         </div>
 
-        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center scroll-float" style="color: var(--climadent-dark-blue);">¿Por qué elegir ClimaDent?</h2>
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center" style="color: var(--climadent-dark-blue);">¿Por qué elegir ClimaDent?</h2>
 
-        <div class="grid md:grid-cols-3 gap-6 mb-8 scroll-float" data-stagger="0.1">
-            <div class="why-us-card">
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <div class="why-us-card p-4 text-center">
                 <i class="fas fa-chart-line text-2xl mb-3"></i>
                 <h4 class="text-lg font-semibold mb-2">Resultados Medibles</h4>
                 <p class="text-gray-600">Seguimiento constante de KPIs y ROI.</p>
             </div>
-            <div class="why-us-card">
+            <div class="why-us-card p-4 text-center">
                 <i class="fas fa-users text-2xl mb-3"></i>
                 <h4 class="text-lg font-semibold mb-2">Equipo Especializado</h4>
                 <p class="text-gray-600">Expertos en marketing dental.</p>
             </div>
-            <div class="why-us-card">
+            <div class="why-us-card p-4 text-center">
                 <i class="fas fa-handshake text-2xl mb-3"></i>
                 <h4 class="text-lg font-semibold mb-2">Compromiso Total</h4>
                 <p class="text-gray-600">Tu éxito es nuestro éxito.</p>
@@ -395,8 +395,8 @@
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: window.innerWidth < 768 ? 'y' : 'x', // Horizontal bars on mobile
+                maintainAspectRatio: true,
+                indexAxis: 'x',
                 scales: {
                     y: {
                         beginAtZero: true,
@@ -479,8 +479,8 @@
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: window.innerWidth < 768 ? 'y' : 'x', // Horizontal bars on mobile
+                maintainAspectRatio: true,
+                indexAxis: 'x',
                 scales: {
                     y: {
                         beginAtZero: true,
@@ -488,28 +488,14 @@
                             display: false
                         },
                         ticks: {
-                            callback: function(value, index) {
-                                if (window.innerWidth < 768) {
-                                    // En móvil, cuando las barras están horizontales, el eje Y muestra las etiquetas
-                                    return ['Malo', 'Regular', 'Bueno'][index];
-                                }
-                                return value;
+                            callback: function(value) {
+                                return value.toLocaleString() + '€';
                             }
                         }
                     },
                     x: {
                         grid: {
                             display: false
-                        },
-                        ticks: {
-                            callback: function(value, index) {
-                                if (window.innerWidth < 768) {
-                                    // En móvil, para el eje X que muestra valores
-                                    return value.toLocaleString() + '€';
-                                }
-                                // En escritorio, para el eje X que muestra etiquetas
-                                return ['Malo', 'Regular', 'Bueno'][index];
-                            }
                         }
                     }
                 },
@@ -519,9 +505,6 @@
                     },
                     tooltip: {
                         callbacks: {
-                            title: function(context) {
-                                return ['Malo', 'Regular', 'Bueno'][context[0].dataIndex];
-                            },
                             label: function(context) {
                                 return context.raw.toLocaleString() + '€';
                             }
