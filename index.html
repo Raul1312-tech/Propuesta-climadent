@@ -20,6 +20,10 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        /* Reduce padding top for body */
+        .body-container {
+            padding-top: 1rem; /* Reduced from default */
+        }
         .chart-container {
             position: relative;
             margin: auto;
@@ -126,9 +130,9 @@
 
          /* Logo Placeholder Style */
          .logo-image {
-             max-width: 350px; /* Aumentado de 250px a 350px */
+             max-width: 350px;
              height: auto;
-             margin: 0 auto 1.5rem; /* Center and add space below */
+             margin: 0 auto 0.5rem; /* Reduced bottom margin from 1.5rem to 0.5rem */
          }
 
     </style>
@@ -136,14 +140,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100 p-4 md:p-8">
+<body class="bg-gray-100 p-4 md:p-6">
 
-    <div class="max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-lg shadow-xl fade-in">
+    <div class="max-w-4xl mx-auto bg-white p-4 md:p-6 rounded-lg shadow-xl fade-in body-container">
 
-        <div class="text-center mb-8 border-b pb-4 border-gray-200">
+        <div class="text-center mb-4 border-b pb-3 border-gray-200">
             <img src="Logo climadent.jpg.png" alt="Logo ClimaDent" class="logo-image mx-auto">
 
-            <h1 class="text-3xl md:text-4xl font-bold mb-2 main-title">Propuesta de Marketing Digital</h1>
+            <h1 class="text-3xl md:text-4xl font-bold mb-1 main-title">Propuesta de Marketing Digital</h1>
             <h2 class="text-xl md:text-2xl text-gray-600">Impulsa el Crecimiento de Tu Clínica Dental - Presentado por ClimaDent</h2>
         </div>
 
