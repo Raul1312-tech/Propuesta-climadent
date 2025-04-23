@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@react-spring/web": "^9.7.5",
+    "framer-motion": "^12.8.0",
+    "gsap": "^3.12.7"
+  }
+}

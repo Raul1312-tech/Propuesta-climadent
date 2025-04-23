@@ -35,7 +35,7 @@
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             margin-bottom: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, y 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
         @keyframes fadeIn {
@@ -76,39 +76,66 @@
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, y 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-left: 4px solid var(--climadent-blue); /* Use corporate blue for accent */
             cursor: pointer;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
         }
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) !important;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         .service-card h3 {
              color: var(--climadent-dark-blue); /* Use dark blue for card titles */
+             opacity: 1 !important;
+             visibility: visible !important;
         }
         .service-card h3 i {
              color: var(--climadent-blue); /* Use corporate blue for icons */
+             opacity: 1 !important;
+             visibility: visible !important;
         }
 
         .package-card {
              background-color: #eef2ff; /* Lighter version of corporate blue/purple */
              border-left: 4px solid var(--climadent-purple); /* Use corporate purple for package accent */
-             transition: transform 0.3s ease, box-shadow 0.3s ease, y 0.3s ease;
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
              cursor: pointer;
+             /* Mejorar la nitidez */
+             backface-visibility: hidden;
+             -webkit-font-smoothing: antialiased;
+             -moz-osx-font-smoothing: grayscale;
+             transform: translateZ(0) !important;
+             will-change: transform;
+             opacity: 1 !important;
+             visibility: visible !important;
         }
          .package-card h4 {
              color: var(--climadent-dark-blue);
+             opacity: 1 !important;
+             visibility: visible !important;
          }
 
         .star-package {
              border-color: var(--climadent-blue); /* Use corporate blue for star package */
              background-color: #f0f9ff; /* Light blue background */
-             transition: transform 0.3s ease, box-shadow 0.3s ease, y 0.3s ease;
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
              cursor: pointer;
+             /* Mejorar la nitidez */
+             backface-visibility: hidden;
+             -webkit-font-smoothing: antialiased;
+             -moz-osx-font-smoothing: grayscale;
+             transform: translateZ(0) !important;
+             will-change: transform;
+             opacity: 1 !important;
+             visibility: visible !important;
         }
          .star-package h4 {
              color: var(--climadent-dark-blue);
+             opacity: 1 !important;
+             visibility: visible !important;
          }
          .star-package h4 i {
              color: var(--climadent-blue); /* Star icon color */
@@ -119,8 +146,16 @@
             padding: 1rem;
             border-radius: 0.5rem;
             box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, y 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            /* Mejorar la nitidez */
+            backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transform: translateZ(0) !important;
+            will-change: transform;
+            opacity: 1 !important;
+            visibility: visible !important;
         }
          .why-us-card i {
              color: var(--climadent-blue);
@@ -128,6 +163,24 @@
          .why-us-card h4 {
              color: var(--climadent-dark-blue);
              font-weight: 600;
+             opacity: 1 !important;
+             visibility: visible !important;
+         }
+         
+         /* Títulos principales siempre visibles */
+         h2.text-center, h2.text-2xl, h2.text-3xl, h2.font-semibold, h2.text-gray-800, h2.mb-6 {
+             opacity: 1 !important;
+             visibility: visible !important;
+             transform: none !important;
+         }
+         
+         /* Arreglar específicamente la sección de Nuestros Servicios Estrella */
+         h2:contains("Nuestros Servicios Estrella"), 
+         h2[text*="Nuestros Servicios Estrella"] {
+             opacity: 1 !important;
+             visibility: visible !important;
+             transform: none !important;
+             display: block !important;
          }
 
          strong.highlight {
@@ -156,6 +209,31 @@
              transition: transform 0.5s ease;
          }
 
+        /* Estilos para el efecto Dock */
+        .graph-container {
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-origin: center center;
+            overflow: visible !important;
+            z-index: 1;
+        }
+        
+        .dock-effect-applied {
+            transform-origin: center center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform, box-shadow;
+        }
+        
+        /* Mejorar visibilidad de los tooltips en gráficos */
+        .chartjs-tooltip {
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            color: white !important;
+            padding: 8px 12px !important;
+            border-radius: 6px !important;
+            font-weight: 500 !important;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2) !important;
+        }
+
     </style>
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -163,6 +241,7 @@
     <script src="scrollEffects.js"></script>
     <script src="zoomEffects.js"></script>
     <script src="masonryLayout.js"></script>
+    <script src="dockEffect.js"></script>
 </head>
 <body class="bg-gray-100 p-4 md:p-6">
 
@@ -182,9 +261,9 @@
             <p>Nuestra propuesta está diseñada para <strong class="highlight">maximizar vuestra visibilidad, generar un flujo constante de pacientes potenciales (leads) y convertirlos en tratamientos reales</strong>, con un enfoque especial en servicios de alto valor como los implantes.</p>
         </div>
 
-        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center scroll-float" style="color: var(--climadent-dark-blue);">Nuestros Servicios Estrella</h2>
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center" style="color: var(--climadent-dark-blue); opacity: 1 !important; visibility: visible !important; display: block !important;">Nuestros Servicios Estrella</h2>
 
-        <div class="service-card">
+        <div class="service-card" style="opacity: 1 !important; visibility: visible !important; display: block !important;">
             <h3 class="text-xl mb-4 flex items-center"><i class="fas fa-bullhorn mr-2"></i>1. Campañas de Captación de Pacientes (Facebook & Instagram Ads)</h3>
             <p class="text-gray-600 mb-3"><strong class="text-gray-700">Objetivo:</strong> Generar un volumen significativo de primeras visitas cualificadas mes a mes.</p>
 
@@ -213,13 +292,13 @@
                 <p class="text-gray-700 text-sm mb-2"><strong>Nota:</strong> El ticket medio por implante es de aproximadamente <strong class="text-blue-600">1.400€</strong>, y generalmente los pacientes presentan <strong class="text-blue-600">varias ausencias dentales</strong>. Con 10 conversiones mensuales, la facturación adicional estimada oscila entre <strong class="text-green-600">15.000€ y 35.000€</strong> mensuales, dependiendo del número de tratamientos aceptados por cada paciente.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-                <div class="bg-white p-4 rounded-lg shadow-sm">
+                <div class="bg-white p-4 rounded-lg shadow-sm graph-container">
                     <h5 class="text-center text-gray-700 font-semibold mb-4">Leads y Conversiones</h5>
                     <div style="min-height: 300px; max-height: 350px; position: relative;">
                         <canvas id="leadConversionChart"></canvas>
                     </div>
                 </div>
-                <div class="bg-white p-4 rounded-lg shadow-sm">
+                <div class="bg-white p-4 rounded-lg shadow-sm graph-container" id="revenue-chart-container">
                     <h5 class="text-center text-gray-700 font-semibold mb-4">Escenarios de Facturación Mensual</h5>
                     <div style="min-height: 300px; max-height: 350px; position: relative;">
                         <canvas id="revenueChart"></canvas>
@@ -241,7 +320,7 @@
             </ul>
 
              <h4 class="font-semibold text-gray-700 mb-2 text-center">Ejemplo Inversión Mensual (1 Campaña High-Ticket)</h4>
-             <div class="chart-container fade-in" style="animation-delay: 0.3s;">
+             <div class="chart-container fade-in graph-container" style="animation-delay: 0.3s;">
                 <canvas id="investmentChart"></canvas>
             </div>
         </div>
@@ -319,17 +398,17 @@
             </div>
         </div>
 
-        <div class="star-package p-6 rounded-lg mb-8" style="border-left: 4px solid var(--climadent-purple); background-color: #f0f9ff;">
+        <div class="star-package p-6 rounded-lg mb-4" style="border-left: 4px solid var(--climadent-purple); background-color: #f0f9ff;">
             <h4 class="text-xl font-semibold mb-4"><i class="fas fa-star mr-2" style="color: var(--climadent-blue);"></i>Paquete 360 Digital Completo</h4>
             <p class="text-gray-600 mb-3">Campaña Ads + Community Manager + SEO Local</p>
             <p class="text-blue-600 font-semibold mb-2">Inversión: 1100€/mes (3 meses mín.) + Ads</p>
             <p class="text-green-600 font-semibold"><i class="fas fa-tag mr-1"></i>¡Oferta Branding! Añádelo por solo 400€ (50% Dto.).</p>
         </div>
 
-        <div class="mb-8">
-            <h3 class="text-xl font-semibold mb-4 text-center" style="color: var(--climadent-dark-blue);">Comparativa Inversión Mensual (Honorarios ClimaDent)</h3>
-            <div class="bg-white p-4 rounded-lg shadow-sm" style="max-width: 700px; margin: 0 auto;">
-                <div class="chart-container fade-in" style="min-height: 300px; max-height: 400px; position: relative;">
+        <div class="mb-2">
+            <h3 class="text-2xl md:text-3xl font-bold mb-2 text-center" style="color: var(--climadent-dark-blue);">Comparativa Inversión Mensual (Honorarios ClimaDent)</h3>
+            <div class="bg-white p-2 rounded-lg shadow-sm graph-container" style="max-width: 700px; margin: 0 auto;">
+                <div style="min-height: 280px; max-height: 380px; position: relative;">
                     <canvas id="packageComparisonChart"></canvas>
                 </div>
             </div>
@@ -337,21 +416,29 @@
 
         <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center" style="color: var(--climadent-dark-blue);">¿Por qué elegir ClimaDent?</h2>
 
-        <div class="grid md:grid-cols-3 gap-6 mb-8">
-            <div class="why-us-card p-4 text-center">
-                <i class="fas fa-chart-line text-2xl mb-3"></i>
-                <h4 class="text-lg font-semibold mb-2">Resultados Medibles</h4>
-                <p class="text-gray-600">Seguimiento constante de KPIs y ROI.</p>
+        <div class="flex flex-wrap justify-center mb-8">
+            <div class="w-full md:w-1/3 px-4 mb-6">
+                <div class="why-us-card p-4 text-center h-full">
+                    <i class="fas fa-chart-line text-2xl mb-3"></i>
+                    <h4 class="text-lg font-semibold mb-2">Resultados Medibles</h4>
+                    <p class="text-gray-600">Seguimiento constante de KPIs y ROI.</p>
+                </div>
             </div>
-            <div class="why-us-card p-4 text-center">
-                <i class="fas fa-users text-2xl mb-3"></i>
-                <h4 class="text-lg font-semibold mb-2">Equipo Especializado</h4>
-                <p class="text-gray-600">Expertos en marketing dental.</p>
+
+            <div class="w-full md:w-1/3 px-4 mb-6">
+                <div class="why-us-card p-4 text-center h-full">
+                    <i class="fas fa-handshake text-2xl mb-3"></i>
+                    <h4 class="text-lg font-semibold mb-2">Compromiso Total</h4>
+                    <p class="text-gray-600">Tu éxito es nuestro éxito.</p>
+                </div>
             </div>
-            <div class="why-us-card p-4 text-center">
-                <i class="fas fa-handshake text-2xl mb-3"></i>
-                <h4 class="text-lg font-semibold mb-2">Compromiso Total</h4>
-                <p class="text-gray-600">Tu éxito es nuestro éxito.</p>
+
+            <div class="w-full md:w-1/3 px-4 mb-6">
+                <div class="why-us-card p-4 text-center h-full">
+                    <i class="fas fa-users text-2xl mb-3"></i>
+                    <h4 class="text-lg font-semibold mb-2">Equipo Especializado</h4>
+                    <p class="text-gray-600">Expertos en marketing dental.</p>
+                </div>
             </div>
         </div>
 
@@ -597,6 +684,91 @@
             packageChart.options.scales.y.max = window.innerWidth < 768 ? undefined : 1200;
             packageChart.update();
         });
+    </script>
+    
+    <script>
+        // Asegurar que los efectos dock se apliquen correctamente a todos los gráficos
+        window.addEventListener('load', function() {
+            // Aplicar efectos específicamente a los gráficos después de que se hayan cargado
+            setTimeout(() => {
+                // Reiniciar el efecto dock para todos los gráficos
+                if (window.initDockEffect) {
+                    window.initDockEffect('.graph-container');
+                    
+                    // Efecto específico para el gráfico de facturación
+                    const revenueSettings = {
+                        maxScale: 1.6,
+                        scaleRange: 180,
+                        transitionDuration: 0.25
+                    };
+                    window.initDockEffect('#revenue-chart-container', revenueSettings);
+                }
+                
+                // Asegurar que el gráfico de facturación mensual tenga los estilos correctos
+                const revenueChart = document.getElementById('revenue-chart-container');
+                if (revenueChart) {
+                    revenueChart.style.transformOrigin = 'center center';
+                    revenueChart.style.transition = 'transform 0.25s ease-out';
+                    revenueChart.style.willChange = 'transform, z-index';
+                }
+            }, 500);
+        });
+    </script>
+    
+    <script>
+        // Script para asegurar que los servicios y secciones importantes sean siempre visibles
+        function makeElementsVisible() {
+            // Seleccionar elementos importantes
+            const importantElements = document.querySelectorAll(
+                '.service-card, .package-card, .star-package, .why-us-card, h2, h2.text-center, ' +
+                'h3.text-center, h4.text-center, #revenue-chart-container'
+            );
+            
+            // Forzar visibilidad
+            importantElements.forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+                el.style.visibility = 'visible';
+                // Eliminar cualquier clase que pueda interferir
+                el.classList.remove('fade-in', 'slide-in', 'zoom-in', 'rotate-in');
+                // Añadir estilos importantes
+                el.style.setProperty('opacity', '1', 'important');
+                el.style.setProperty('visibility', 'visible', 'important');
+                el.style.setProperty('transform', 'none', 'important');
+            });
+            
+            // Específicamente para los títulos y secciones de servicios estrella
+            const serviciosSection = document.querySelector('h2.text-2xl.md\\:text-3xl.font-semibold.text-gray-800.mb-6.text-center.scroll-float');
+            if (serviciosSection) {
+                serviciosSection.style.setProperty('opacity', '1', 'important');
+                serviciosSection.style.setProperty('visibility', 'visible', 'important');
+                serviciosSection.style.setProperty('transform', 'none', 'important');
+                
+                // Arreglar también todos los elementos posteriores a este título
+                let currentNode = serviciosSection.nextElementSibling;
+                while (currentNode && !currentNode.classList.contains('text-center')) {
+                    currentNode.style.setProperty('opacity', '1', 'important');
+                    currentNode.style.setProperty('visibility', 'visible', 'important');
+                    currentNode.style.setProperty('transform', 'none', 'important');
+                    currentNode = currentNode.nextElementSibling;
+                }
+            }
+        }
+        
+        // Ejecutar inmediatamente
+        makeElementsVisible();
+        
+        // Ejecutar también después de que la página esté cargada
+        window.addEventListener('DOMContentLoaded', makeElementsVisible);
+        window.addEventListener('load', makeElementsVisible);
+        
+        // Ejecutar cada 500ms durante 3 segundos para asegurarnos de que los elementos sean visibles
+        let counter = 0;
+        const interval = setInterval(() => {
+            makeElementsVisible();
+            counter++;
+            if (counter >= 6) clearInterval(interval);
+        }, 500);
     </script>
 </body>
 </html> 
