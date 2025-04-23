@@ -35,6 +35,8 @@
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, y 0.3s ease;
+            cursor: pointer;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -74,11 +76,13 @@
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            transition: transform 0.2s ease-in-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, y 0.3s ease;
             border-left: 4px solid var(--climadent-blue); /* Use corporate blue for accent */
+            cursor: pointer;
         }
         .service-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         .service-card h3 {
              color: var(--climadent-dark-blue); /* Use dark blue for card titles */
@@ -90,6 +94,8 @@
         .package-card {
              background-color: #eef2ff; /* Lighter version of corporate blue/purple */
              border-left: 4px solid var(--climadent-purple); /* Use corporate purple for package accent */
+             transition: transform 0.3s ease, box-shadow 0.3s ease, y 0.3s ease;
+             cursor: pointer;
         }
          .package-card h4 {
              color: var(--climadent-dark-blue);
@@ -98,6 +104,8 @@
         .star-package {
              border-color: var(--climadent-blue); /* Use corporate blue for star package */
              background-color: #f0f9ff; /* Light blue background */
+             transition: transform 0.3s ease, box-shadow 0.3s ease, y 0.3s ease;
+             cursor: pointer;
         }
          .star-package h4 {
              color: var(--climadent-dark-blue);
@@ -111,6 +119,8 @@
             padding: 1rem;
             border-radius: 0.5rem;
             box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, y 0.3s ease;
+            cursor: pointer;
         }
          .why-us-card i {
              color: var(--climadent-blue);
@@ -135,10 +145,24 @@
              margin: 0 auto 0.5rem; /* Reduced bottom margin from 1.5rem to 0.5rem */
          }
 
+         /* Estilos para layout masonry */
+         .grid {
+             position: relative;
+             transition: height 0.5s ease;
+         }
+         
+         .grid > * {
+             position: relative;
+             transition: transform 0.5s ease;
+         }
+
     </style>
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="scrollEffects.js"></script>
+    <script src="zoomEffects.js"></script>
+    <script src="masonryLayout.js"></script>
 </head>
 <body class="bg-gray-100 p-4 md:p-6">
 
@@ -151,16 +175,16 @@
             <h2 class="text-xl md:text-2xl text-gray-600">Impulsa el Crecimiento de Tu Clínica Dental - Presentado por ClimaDent</h2>
         </div>
 
-        <div class="mb-8 text-gray-700">
+        <div class="mb-8 text-gray-700 scroll-float" data-duration="0.8" data-ease="power2.out">
             <p class="mb-4">Estimado cliente:</p>
             <p class="mb-4">Entendemos que vuestro principal objetivo es <strong class="highlight">atraer a más pacientes</strong> y <strong class="highlight">aumentar la facturación</strong> de vuestra clínica dental. En <strong style="color: var(--climadent-dark-blue); font-weight: 600;">ClimaDent</strong>, somos expertos en crear estrategias digitales personalizadas que convierten la inversión en resultados tangibles.</p>
             <p class="mb-4">Vivimos en una era digital donde la presencia online es crucial. Los pacientes buscan activamente soluciones dentales en internet, y ahí es donde debemos posicionar vuestra clínica: como la opción preferente y de confianza en vuestra área.</p>
             <p>Nuestra propuesta está diseñada para <strong class="highlight">maximizar vuestra visibilidad, generar un flujo constante de pacientes potenciales (leads) y convertirlos en tratamientos reales</strong>, con un enfoque especial en servicios de alto valor como los implantes.</p>
         </div>
 
-        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center" style="color: var(--climadent-dark-blue);">Nuestros Servicios Estrella</h2>
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center scroll-float" style="color: var(--climadent-dark-blue);">Nuestros Servicios Estrella</h2>
 
-        <div class="service-card fade-in" style="animation-delay: 0.1s;">
+        <div class="service-card">
             <h3 class="text-xl mb-4 flex items-center"><i class="fas fa-bullhorn mr-2"></i>1. Campañas de Captación de Pacientes (Facebook & Instagram Ads)</h3>
             <p class="text-gray-600 mb-3"><strong class="text-gray-700">Objetivo:</strong> Generar un volumen significativo de primeras visitas cualificadas mes a mes.</p>
 
@@ -222,7 +246,7 @@
             </div>
         </div>
 
-        <div class="service-card fade-in" style="animation-delay: 0.4s;">
+        <div class="service-card">
             <h3 class="text-xl mb-4 flex items-center"><i class="fas fa-palette mr-2"></i>2. Creación de Branding e Identidad Corporativa</h3>
              <p class="text-gray-600 mb-3"><strong class="text-gray-700">Objetivo:</strong> Construir una marca sólida, profesional y memorable.</p>
              <h4 class="font-semibold text-gray-700 mb-2">¿Qué incluye?</h4>
@@ -237,7 +261,7 @@
              <p class="text-gray-600"><strong class="text-gray-700">Inversión:</strong> <span class="text-lg font-semibold" style="color: var(--climadent-blue);">800€</span> (Pago único).</p>
         </div>
 
-        <div class="service-card fade-in" style="animation-delay: 0.5s;">
+        <div class="service-card">
             <h3 class="text-xl mb-4 flex items-center"><i class="fas fa-share-alt mr-2"></i>3. Gestión Profesional de Redes Sociales</h3>
              <p class="text-gray-600 mb-3"><strong class="text-gray-700">Objetivo:</strong> Crear comunidad, fortalecer marca y atraer pacientes.</p>
              <h4 class="font-semibold text-gray-700 mb-2">Metodología Única:</h4>
@@ -252,7 +276,7 @@
              <p class="text-gray-600"><strong class="text-gray-700">Inversión:</strong> <span class="text-lg font-semibold" style="color: var(--climadent-blue);">350€ / mes</span>.</p>
         </div>
 
-        <div class="service-card fade-in" style="animation-delay: 0.6s;">
+        <div class="service-card">
             <h3 class="text-xl mb-4 flex items-center"><i class="fas fa-search-location mr-2"></i>4. SEO Local - Posicionamiento Web Orgánico</h3>
             <p class="text-gray-600 mb-3"><strong class="text-gray-700">Objetivo:</strong> Dominar búsquedas locales en Google y captar pacientes orgánicamente.</p>
             <h4 class="font-semibold text-gray-700 mb-2">¿Qué hacemos?</h4>
@@ -265,37 +289,37 @@
             <p class="text-gray-600"><strong class="text-gray-700">Inversión:</strong> <span class="text-lg font-semibold" style="color: var(--climadent-blue);">350€ / mes</span>.</p>
         </div>
 
-        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 mt-10 text-center" style="color: var(--climadent-dark-blue);">Paquetes Estratégicos: Sinergia y Ahorro</h2>
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 mt-10 text-center scroll-float" style="color: var(--climadent-dark-blue);">Paquetes Estratégicos: Sinergia y Ahorro</h2>
 
-        <div class="grid md:grid-cols-2 gap-6 mb-8">
-            <div class="package-card p-6 rounded-lg fade-in" style="animation-delay: 0.7s;">
+        <div class="grid md:grid-cols-2 gap-6 mb-8 scroll-float" data-stagger="0.1">
+            <div class="package-card p-6 rounded-lg">
                 <h4 class="text-xl font-semibold mb-4">Impulso Inicial</h4>
                 <p class="text-gray-600 mb-3">Campaña Ads (1 mes) + Branding</p>
                 <p class="text-purple-600 font-semibold">Inversión: 1000€ (Pago Único) + Ads</p>
             </div>
 
-            <div class="package-card p-6 rounded-lg fade-in" style="animation-delay: 0.8s;">
+            <div class="package-card p-6 rounded-lg">
                 <h4 class="text-xl font-semibold mb-4">Doble Impacto</h4>
                 <p class="text-gray-600 mb-3">2 Campañas Ads Simultáneas</p>
                 <p class="text-purple-600 font-semibold">Inversión: 950€/mes (Honorarios ClimaDent) + Ads x2</p>
             </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6 mb-8">
-            <div class="package-card p-6 rounded-lg fade-in" style="animation-delay: 0.9s;">
+        <div class="grid md:grid-cols-2 gap-6 mb-8 scroll-float" data-stagger="0.1">
+            <div class="package-card p-6 rounded-lg">
                 <h4 class="text-xl font-semibold mb-4">Visibilidad Total</h4>
                 <p class="text-gray-600 mb-3">Campaña Ads + Community Manager</p>
                 <p class="text-purple-600 font-semibold">Inversión: 950€/mes (3 meses mín.) + Ads</p>
             </div>
 
-            <div class="package-card p-6 rounded-lg fade-in" style="animation-delay: 1s;">
+            <div class="package-card p-6 rounded-lg">
                 <h4 class="text-xl font-semibold mb-4">Autoridad Local</h4>
                 <p class="text-gray-600 mb-3">Campaña Ads + SEO Local</p>
                 <p class="text-purple-600 font-semibold">Inversión: 950€/mes (3 meses mín.) + Ads</p>
             </div>
         </div>
 
-        <div class="star-package p-6 rounded-lg fade-in mb-8" style="animation-delay: 1.1s;">
+        <div class="star-package p-6 rounded-lg">
             <h4 class="text-xl font-semibold mb-4"><i class="fas fa-star mr-2"></i>Paquete 360 Digital Completo</h4>
             <p class="text-gray-600 mb-3">Campaña Ads + Community Manager + SEO Local</p>
             <p class="text-blue-600 font-semibold mb-2">Inversión: 1100€/mes (3 meses mín.) + Ads</p>
@@ -311,32 +335,32 @@
             </div>
         </div>
 
-        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center" style="color: var(--climadent-dark-blue);">¿Por qué elegir ClimaDent?</h2>
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-6 text-center scroll-float" style="color: var(--climadent-dark-blue);">¿Por qué elegir ClimaDent?</h2>
 
-        <div class="grid md:grid-cols-3 gap-6 mb-8">
-            <div class="why-us-card fade-in" style="animation-delay: 0.9s;">
+        <div class="grid md:grid-cols-3 gap-6 mb-8 scroll-float" data-stagger="0.1">
+            <div class="why-us-card">
                 <i class="fas fa-chart-line text-2xl mb-3"></i>
                 <h4 class="text-lg font-semibold mb-2">Resultados Medibles</h4>
                 <p class="text-gray-600">Seguimiento constante de KPIs y ROI.</p>
             </div>
-            <div class="why-us-card fade-in" style="animation-delay: 1s;">
+            <div class="why-us-card">
                 <i class="fas fa-users text-2xl mb-3"></i>
                 <h4 class="text-lg font-semibold mb-2">Equipo Especializado</h4>
                 <p class="text-gray-600">Expertos en marketing dental.</p>
             </div>
-            <div class="why-us-card fade-in" style="animation-delay: 1.1s;">
+            <div class="why-us-card">
                 <i class="fas fa-handshake text-2xl mb-3"></i>
                 <h4 class="text-lg font-semibold mb-2">Compromiso Total</h4>
                 <p class="text-gray-600">Tu éxito es nuestro éxito.</p>
             </div>
         </div>
 
-        <div class="text-center mb-8">
+        <div class="text-center mb-8 scroll-float">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 mb-4" style="color: var(--climadent-dark-blue);">Gracias por tu interés</h2>
             <p class="text-gray-600 mb-6">Apreciamos el tiempo que has dedicado a revisar nuestra propuesta</p>
         </div>
 
-        <footer class="text-center text-gray-600 text-sm">
+        <footer class="text-center text-gray-600 text-sm scroll-float" data-ease="power1.inOut">
             <div class="footer-info mb-4">
                 <p class="agency-name">ClimaDent Marketing Dental</p>
                 <p class="font-semibold">Raúl González Sánchez</p>
