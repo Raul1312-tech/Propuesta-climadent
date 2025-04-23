@@ -184,14 +184,18 @@
             <div class="bg-blue-50 p-4 rounded-lg mb-4">
                 <p class="text-gray-700 text-sm mb-2"><strong>Nota:</strong> El ticket medio por implante es de aproximadamente <strong class="text-blue-600">1.400€</strong>, y generalmente los pacientes presentan <strong class="text-blue-600">varias ausencias dentales</strong>. Con 10 conversiones mensuales, la facturación adicional estimada oscila entre <strong class="text-green-600">15.000€ y 35.000€</strong> mensuales, dependiendo del número de tratamientos aceptados por cada paciente.</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-6 mb-4">
-                <div class="chart-container fade-in" style="animation-delay: 0.2s; height: 250px;">
-                    <h5 class="text-center text-gray-700 font-semibold mb-2">Leads y Conversiones</h5>
-                    <canvas id="leadConversionChart"></canvas>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <h5 class="text-center text-gray-700 font-semibold mb-4">Leads y Conversiones</h5>
+                    <div class="chart-container fade-in" style="animation-delay: 0.2s; min-height: 300px; max-height: 350px; position: relative;">
+                        <canvas id="leadConversionChart"></canvas>
+                    </div>
                 </div>
-                <div class="chart-container fade-in" style="animation-delay: 0.3s; height: 250px;">
-                    <h5 class="text-center text-gray-700 font-semibold mb-2">Escenarios de Facturación Mensual</h5>
-                    <canvas id="revenueChart"></canvas>
+                <div class="bg-white p-4 rounded-lg shadow-sm">
+                    <h5 class="text-center text-gray-700 font-semibold mb-4">Escenarios de Facturación Mensual</h5>
+                    <div class="chart-container fade-in" style="animation-delay: 0.3s; min-height: 300px; max-height: 350px; position: relative;">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
                 </div>
             </div>
 
@@ -296,8 +300,10 @@
 
         <div class="mb-8">
             <h3 class="text-xl font-semibold mb-4 text-center" style="color: var(--climadent-dark-blue);">Comparativa Inversión Mensual (Honorarios ClimaDent)</h3>
-            <div class="chart-container fade-in">
-                <canvas id="packageComparisonChart"></canvas>
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+                <div class="chart-container fade-in" style="min-height: 300px; max-height: 400px; position: relative;">
+                    <canvas id="packageComparisonChart"></canvas>
+                </div>
             </div>
         </div>
 
@@ -340,7 +346,7 @@
     <script>
         // Chart for Lead Conversion
         const leadConversionCtx = document.getElementById('leadConversionChart').getContext('2d');
-        new Chart(leadConversionCtx, {
+        const leadChart = new Chart(leadConversionCtx, {
             type: 'bar',
             data: {
                 labels: ['Leads Generados', 'Conversiones'],
@@ -348,21 +354,44 @@
                     label: 'Mensual',
                     data: [100, 10],
                     backgroundColor: [
-                        'rgba(77, 90, 229, 0.6)',
-                        'rgba(0, 242, 169, 0.6)'
+                        'rgba(77, 90, 229, 0.7)',
+                        'rgba(0, 242, 169, 0.7)'
                     ],
                     borderColor: [
                         'rgba(77, 90, 229, 1)',
                         'rgba(0, 242, 169, 1)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 1,
+                    borderRadius: 4
                 }]
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: window.innerWidth < 768 ? 'y' : 'x', // Horizontal bars on mobile
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        grid: {
+                            display: false
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw + (context.dataIndex === 0 ? ' leads' : ' conversiones');
+                            }
+                        }
                     }
                 }
             }
@@ -399,34 +428,74 @@
 
         // Chart for Revenue Scenarios
         const revenueCtx = document.getElementById('revenueChart').getContext('2d');
-        new Chart(revenueCtx, {
+        const revenueChart = new Chart(revenueCtx, {
             type: 'bar',
             data: {
-                labels: ['Desfavorable', 'Medio', 'Positivo'],
+                labels: ['Malo', 'Regular', 'Bueno'],
                 datasets: [{
                     label: 'Facturación Estimada (€)',
                     data: [15000, 25000, 35000],
                     backgroundColor: [
-                        'rgba(255, 193, 7, 0.6)',
-                        'rgba(0, 180, 120, 0.6)',
-                        'rgba(0, 123, 255, 0.6)'
+                        'rgba(255, 193, 7, 0.7)',
+                        'rgba(0, 180, 120, 0.7)',
+                        'rgba(0, 123, 255, 0.7)'
                     ],
                     borderColor: [
                         'rgba(255, 193, 7, 1)',
                         'rgba(0, 180, 120, 1)',
                         'rgba(0, 123, 255, 1)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 1,
+                    borderRadius: 4
                 }]
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: window.innerWidth < 768 ? 'y' : 'x', // Horizontal bars on mobile
                 scales: {
                     y: {
                         beginAtZero: true,
+                        grid: {
+                            display: false
+                        },
                         ticks: {
-                            callback: function(value) {
-                                return value.toLocaleString() + '€';
+                            callback: function(value, index) {
+                                if (window.innerWidth < 768) {
+                                    // En móvil, cuando las barras están horizontales, el eje Y muestra las etiquetas
+                                    return ['Malo', 'Regular', 'Bueno'][index];
+                                }
+                                return value;
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            callback: function(value, index) {
+                                if (window.innerWidth < 768) {
+                                    // En móvil, para el eje X que muestra valores
+                                    return value.toLocaleString() + '€';
+                                }
+                                // En escritorio, para el eje X que muestra etiquetas
+                                return ['Malo', 'Regular', 'Bueno'][index];
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(context) {
+                                return ['Malo', 'Regular', 'Bueno'][context[0].dataIndex];
+                            },
+                            label: function(context) {
+                                return context.raw.toLocaleString() + '€';
                             }
                         }
                     }
@@ -434,9 +503,20 @@
             }
         });
 
+        // Adjust charts on window resize
+        window.addEventListener('resize', function() {
+            // Toggle horizontal/vertical bars based on screen width
+            leadChart.options.indexAxis = window.innerWidth < 768 ? 'y' : 'x';
+            revenueChart.options.indexAxis = window.innerWidth < 768 ? 'y' : 'x';
+            
+            // Update the charts
+            leadChart.update();
+            revenueChart.update();
+        });
+
         // Chart for Package Comparison
         const packageComparisonCtx = document.getElementById('packageComparisonChart').getContext('2d');
-        new Chart(packageComparisonCtx, {
+        const packageChart = new Chart(packageComparisonCtx, {
             type: 'bar',
             data: {
                 labels: ['1 Campaña', '2 Campañas', 'Camp + CM', 'Camp + SEO', '360 Digital'],
@@ -444,11 +524,11 @@
                     label: 'Euros (€)',
                     data: [700, 950, 950, 950, 1100],
                     backgroundColor: [
-                        'rgba(0, 242, 169, 0.6)',
-                        'rgba(77, 90, 229, 0.6)',
-                        'rgba(128, 128, 128, 0.6)',
-                        'rgba(128, 128, 128, 0.6)',
-                        'rgba(166, 80, 224, 0.6)'
+                        'rgba(0, 242, 169, 0.7)',
+                        'rgba(77, 90, 229, 0.7)',
+                        'rgba(128, 128, 128, 0.7)',
+                        'rgba(128, 128, 128, 0.7)',
+                        'rgba(166, 80, 224, 0.7)'
                     ],
                     borderColor: [
                         'rgba(0, 242, 169, 1)',
@@ -457,23 +537,54 @@
                         'rgba(128, 128, 128, 1)',
                         'rgba(166, 80, 224, 1)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 1,
+                    borderRadius: 4
                 }]
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: window.innerWidth < 768 ? 'y' : 'x', // Horizontal bars on mobile
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 1200
+                        max: window.innerWidth < 768 ? undefined : 1200,
+                        grid: {
+                            display: false
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
                     }
                 },
                 plugins: {
                     legend: {
                         display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw + '€';
+                            }
+                        }
                     }
                 }
             }
+        });
+
+        // Add this chart to resize handler
+        window.addEventListener('resize', function() {
+            // Toggle horizontal/vertical bars based on screen width
+            packageChart.options.indexAxis = window.innerWidth < 768 ? 'y' : 'x';
+            packageChart.options.scales.y.max = window.innerWidth < 768 ? undefined : 1200;
+            packageChart.update();
         });
     </script>
 </body>
